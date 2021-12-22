@@ -18,7 +18,7 @@ listint_t *insert_node(listint_t **head, int number)
 		return (NULL);
 	ret->n = number;
 	actual_node = *head;
-	while(actual_node)
+	while (actual_node)
 	{
 		if (number < actual_node->n && actual_node == *head)
 		{
