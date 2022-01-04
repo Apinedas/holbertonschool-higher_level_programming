@@ -47,7 +47,11 @@ int is_palindrome(listint_t **head)
 			*head = (*head)->next;
 		}
 		else
+		{
+			free_listint(reversed);
 			return (0);
+		}
 	}
+	free_listint(reversed);
 	return (1);
 }
