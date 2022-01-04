@@ -10,30 +10,32 @@ int is_palindrome(listint_t **head)
     listint_t *current, *compare;
 	int list_lenght = 0, movements = 0, moved = 0;
 
-    current = *head;
-    while (current)
+    if (head)
     {
-        list_lenght++;
-        current = current->next;
-    }
-    movements = list_lenght - 1;
-    current = *head;
-    while (movements > 0)
-    {
-        compare = current;
-        while(moved != movements)
+        current = *head;
+        while (current)
         {
-            compare = compare->next;
-            moved++;
-        }
-        if (current->n == compare->n)
-        {
+            list_lenght++;
             current = current->next;
-            movements -= 2;
-            moved = 0;
         }
-        else
-            return (0);
-    }
-    return (1);
+        movements = list_lenght - 1;
+        current = *head;
+        while (movements > 0)
+        {
+            compare = current;
+            while(moved != movements)
+            {
+                compare = compare->next;
+                moved++;
+            }
+            if (current->n == compare->n)
+            {
+                current = current->next;
+                movements -= 2;
+                moved = 0;
+            }
+            else
+                return (0);
+        }
+        return (1);
 }
