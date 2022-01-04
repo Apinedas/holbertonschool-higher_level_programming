@@ -29,7 +29,7 @@ listint_t *add_nodeint(listint_t **head, const int n)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *reversed, *current;
+	listint_t *reversed, *current, *current_rev;
 
 	current = *head;
 	reversed = NULL;
@@ -38,13 +38,14 @@ int is_palindrome(listint_t **head)
 		add_nodeint(&reversed, current->n);
 		current = current->next;
 	}
-	current = reversed;
-	while (current && *head)
+	current = *head;
+	current_rev = reversed;
+	while (current && current_rev)
 	{
-		if (current->n == (*head)->n)
+		if (current->n == (current_rev)->n)
 		{
 			current = current->next;
-			*head = (*head)->next;
+			current_rev = (current_rev)->next;
 		}
 		else
 		{
