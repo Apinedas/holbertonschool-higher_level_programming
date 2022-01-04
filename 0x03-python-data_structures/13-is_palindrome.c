@@ -7,37 +7,27 @@
  */
 int is_palindrome(listint_t **head)
 {
-    listint_t *current, *compare;
-	int list_lenght = 0, movements = 0, moved = 0;
+    listint_t *current;
+	int i = 0, copied_list[4000];
 
-    if (head)
+    current = *head;
+    while(current)
     {
-        current = *head;
-        while (current)
+        copied_list[i] = current->n;
+        i += 1;
+        current = current->next;
+    }
+    current = *head;
+    i -= 1;
+    while (current)
+    {
+        if (current->n == copied_list[i])
         {
-            list_lenght++;
+            i -= 1;
             current = current->next;
         }
-        movements = list_lenght - 1;
-        current = *head;
-        while (movements > 0)
-        {
-            compare = current;
-            while(moved != movements)
-            {
-                compare = compare->next;
-                moved++;
-            }
-            if (current->n == compare->n)
-            {
-                current = current->next;
-                movements -= 2;
-                moved = 0;
-            }
-            else
-                return (0);
-        }
-        return (1);
+        else
+            return (0);
     }
     return (1);
 }
