@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def update_dictionary(a_dictionary, key, value):
     for actual_key in a_dictionary:
         if actual_key == key:
