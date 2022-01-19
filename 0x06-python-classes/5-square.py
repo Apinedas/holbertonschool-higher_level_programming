@@ -3,11 +3,13 @@
 
 
 class Square:
+    """ Init method to instiantiate """
     def __init__(self, size=0):
         self.size = size
 
     @property
     def size(self):
+        """ Size - Square's size """
         return self._size
 
     @size.setter
@@ -19,10 +21,12 @@ class Square:
         else:
             self._size = value
 
+    """ Area - Calcs the area of the square """
     def area(self):
         area = self.size ** 2
         return area
 
+    """ My_print - Prints the square using # """
     def my_print(self):
         if (self.size == 0):
             print()

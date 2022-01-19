@@ -3,6 +3,7 @@
 
 
 class Square:
+    """ Init method to instantiation """
     def __init__(self, size=0):
         if (isinstance(size, int) is False):
             raise TypeError("size must be an integer")

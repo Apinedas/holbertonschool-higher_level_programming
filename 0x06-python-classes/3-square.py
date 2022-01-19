@@ -3,6 +3,7 @@
 
 
 class Square:
+    """ Init method to instantiate """
     def __init__(self, size=0):
         if (isinstance(size, int) is False):
             raise TypeError("size must be an integer")
@@ -11,6 +12,7 @@ class Square:
         else:
             self.__size = size
 
+    """ Area - Calcs the area of the square """
     def area(self):
         area = self._Square__size ** 2
         return area

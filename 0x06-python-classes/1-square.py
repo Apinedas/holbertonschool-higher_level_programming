@@ -3,5 +3,6 @@
 
 
 class Square:
+    """ Init method to instantiate """
     def __init__(self, size):
         self.__size = size
