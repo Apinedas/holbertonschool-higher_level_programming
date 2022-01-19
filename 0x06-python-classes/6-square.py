@@ -42,15 +42,16 @@ class Square:
         area = self.size ** 2
         return area
 
-    """ My_print - Prints the square using # at given position """
+    """ My print - Prints the square using # at given position """
     def my_print(self):
         if (self.size == 0):
             print()
-        for y in range(self.position[1]):
-            print()
-        for height in range(self.size):
-            for x in range(self.position[0]):
-                print(" ", end="")
-            for length in range(self.size):
-                print("#", end="")
-            print()
+        else:
+            for y in range(self.position[1]):
+                print()
+            for height in range(self.size):
+                for x in range(self.position[0]):
+                    print(" ", end="")
+                for length in range(self.size):
+                    print("#", end="")
+                print()
