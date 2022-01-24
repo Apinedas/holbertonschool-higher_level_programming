@@ -19,7 +19,7 @@ class Rectangle:
     def width(self):
         """ Rectangle's width (int) """
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         if isinstance(value, int) is False:
@@ -32,7 +32,7 @@ class Rectangle:
     def height(self):
         """ Rectangle's height (int) """
         return self.__height
-    
+
     @height.setter
     def height(self, value):
         if isinstance(value, int) is False:
