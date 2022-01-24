@@ -3,9 +3,6 @@
 """
 
 
-from cmath import rect
-
-
 class Rectangle:
     """This class describes a rectangle
     """
