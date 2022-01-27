@@ -3,8 +3,5 @@
 
 
 def copy_list(l):
-    """
-    Returns copy of the list l
-    """
     ret = l[:]
     return (ret)
