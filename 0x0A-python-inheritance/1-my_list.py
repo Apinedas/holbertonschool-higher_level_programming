@@ -13,4 +13,6 @@ class MyList(list):
         self.MyList = []
 
     def print_sorted(self):
-        print(sorted(self))
+        sorted_list = self[:]
+        sorted_list.sort()
+        print(sorted_list)
