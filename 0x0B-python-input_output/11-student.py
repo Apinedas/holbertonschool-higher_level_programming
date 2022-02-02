@@ -25,7 +25,8 @@ class Student():
         return (self.__dict__)
 
     def reload_from_json(self, json):
-        first_name = json["first_name"]
-        last_name = json["last_name"]
-        age = json["age"]
-        self.__init__(first_name, last_name, age)
+        if (json and len(json) > 0):
+            first_name = json["first_name"]
+            last_name = json["last_name"]
+            age = json["age"]
+            self.__init__(first_name, last_name, age)
