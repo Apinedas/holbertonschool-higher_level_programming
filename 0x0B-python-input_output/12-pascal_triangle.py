@@ -18,7 +18,7 @@ def pascal_triangle(n):
         ret.append(element)
         new_element = [1]
         i = 0
-        while (i < (len(element)- 1)):
+        while (i < (len(element) - 1)):
             new_element.append(element[i] + element[i + 1])
             i += 1
         new_element.append(1)
