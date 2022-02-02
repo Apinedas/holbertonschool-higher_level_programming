@@ -14,7 +14,8 @@ class Student():
         self.age = age
 
     def to_json(self, attrs=None):
-        if (attrs and all(type(attr) is str for attr in attrs)):
+        if ((attrs and all(type(attr) is str for attr in attrs))
+                or (type(attrs) is list and len(attrs) == 0)):
             ret_dict = dict()
             for (key, value) in (self.__dict__).items():
                 for attr in attrs:
@@ -24,5 +25,7 @@ class Student():
         return (self.__dict__)
 
     def reload_from_json(self, json):
-        for (key, value) in json.items():
-            self.key = value
+        first_name = json["first_name"]
+        last_name = json["last_name"]
+        age = json["age"]
+        self.__init__(first_name, last_name, age)
