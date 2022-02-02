@@ -15,7 +15,7 @@ class Student():
 
     def to_json(self, attrs=None):
         if ((attrs and all(type(attr) is str for attr in attrs))
-        or (type(attrs) is list and len(attrs) == 0)):
+                or (type(attrs) is list and len(attrs) == 0)):
             ret_dict = dict()
             for (key, value) in (self.__dict__).items():
                 for attr in attrs:
