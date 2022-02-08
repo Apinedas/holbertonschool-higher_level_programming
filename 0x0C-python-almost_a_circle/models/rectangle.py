@@ -5,6 +5,8 @@
 
 
 from models.base import Base
+
+
 class Rectangle(Base):
     """
         Rectangle class inherit from Base
@@ -15,9 +17,10 @@ class Rectangle(Base):
         self.x = x
         self.y = y
         super().__init__(id)
-    
+
     def __str__(self):
-        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height))
+        return "[Rectangle] ({}) {}/{} - {}/{}"\
+            .format(self.id, self.x, self.y, self.width, self.height)
 
     @property
     def width(self):
@@ -76,7 +79,7 @@ class Rectangle(Base):
 
     def display(self):
         for k in range(self.y):
-            print ()
+            print()
         for i in range(self.height):
             for x in range(self.x):
                 print(" ", end="")
@@ -101,4 +104,5 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
-         return ({'x': self.x, 'y': self.y, 'id': self.id, 'height': self.height, 'width': self.width})
+        return {'x': self.x, 'y': self.y, 'id': self.id,
+                'height': self.height, 'width': self.width}

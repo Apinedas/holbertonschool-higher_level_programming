@@ -6,6 +6,7 @@
 
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """
         Square class from Rectangle class
@@ -15,7 +16,8 @@ class Square(Rectangle):
         self.size = size
 
     def __str__(self):
-        return ("[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width))
+        return "[Square] ({}) {}/{} - {}"\
+                .format(self.id, self.x, self.y, self.width)
 
     @property
     def size(self):
@@ -42,4 +44,4 @@ class Square(Rectangle):
                 setattr(self, key, value)
 
     def to_dictionary(self):
-         return ({'id': self.id, 'x': self.x, 'size': self.size, 'y': self.y})
+        return ({'id': self.id, 'x': self.x, 'size': self.size, 'y': self.y})
