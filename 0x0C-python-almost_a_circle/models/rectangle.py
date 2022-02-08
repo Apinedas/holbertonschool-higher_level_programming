@@ -12,11 +12,11 @@ class Rectangle(Base):
         Rectangle class inherit from Base
     """
     def __init__(self, width, height, x=0, y=0, id=None):
+        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
-        super().__init__(id)
 
     def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}"\
@@ -110,7 +110,7 @@ class Rectangle(Base):
                 self.x = args[3]
             if (len(args) >= 5):
                 self.y = args[4]
-        if (kwargs):
+        elif (kwargs):
             for (key, value) in kwargs.items():
                 setattr(self, key, value)
 

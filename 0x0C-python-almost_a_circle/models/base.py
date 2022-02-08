@@ -51,7 +51,7 @@ class Base():
             new = cls(1, 1)
         elif cls.__name__ == "Square":
             new = cls(1)
-        new.update(cls, **dictionary)
+        new.update(**dictionary)
         return (new)
 
     @classmethod
