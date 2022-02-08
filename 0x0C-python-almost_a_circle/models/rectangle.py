@@ -75,9 +75,16 @@ class Rectangle(Base):
             self.__y = value
 
     def area(self):
+        """
+            Return rectangle's area
+        """
         return (self.width * self.height)
 
     def display(self):
+        """
+            Displays the rectangle using # character
+            taking x and y into account
+        """
         for k in range(self.y):
             print()
         for i in range(self.height):
@@ -88,6 +95,10 @@ class Rectangle(Base):
             print()
 
     def update(self, *args, **kwargs):
+        """
+            Updates the instance with args
+            and kwargs
+        """
         if (args):
             if (len(args) >= 1):
                 self.id = args[0]
@@ -104,5 +115,8 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
+        """
+            Returns the class dictionary
+        """
         return {'x': self.x, 'y': self.y, 'id': self.id,
                 'height': self.height, 'width': self.width}

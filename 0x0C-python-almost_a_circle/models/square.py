@@ -30,6 +30,10 @@ class Square(Rectangle):
         self.__size = value
 
     def update(self, *args, **kwargs):
+        """
+            Updates the instance with args
+            and kwargs
+        """
         if (args or (args and kwargs)):
             if (len(args) >= 1):
                 self.id = args[0]
@@ -44,4 +48,7 @@ class Square(Rectangle):
                 setattr(self, key, value)
 
     def to_dictionary(self):
+        """
+            Returns the dictionary instance's representation
+        """
         return ({'id': self.id, 'x': self.x, 'size': self.size, 'y': self.y})
