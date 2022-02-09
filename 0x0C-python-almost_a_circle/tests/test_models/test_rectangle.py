@@ -62,6 +62,10 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(1, 1, 1, -1)
 
+    def test_rect_area(self):
+        test_rect = Rectangle(4, 5)
+        self.assertEqual(test_rect.area(), 20)
+
     def test_rect_str(self):
         test_rect = Rectangle(1, 2, 0, 0, 1012)
         ret = "[Rectangle] (1012) 0/0 - 1/2"
