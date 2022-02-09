@@ -12,10 +12,17 @@ class TestBase(unittest.TestCase):
     """
         Test class for Base class
     """
-    base = Base()
+    base_1 = Base()
+    base_2 = Base()
 
-    def test_base(self):
-        self.assertEqual(self.base.id, 1)
+    def test_base_create(self):
+        """
+            First test
+        """
+        self.assertEqual(self.base_1.id, 1)
+    
+    def test_base_update_id(self):
+        self.assertEqual(self.base_2.id, 2)
 
 
 if __name__ == '__main__':
