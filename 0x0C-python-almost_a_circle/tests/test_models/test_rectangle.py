@@ -96,6 +96,152 @@ class TestRectangle(unittest.TestCase):
         ret = {'x': 3, 'y': 4, 'id': 5, 'height': 2, 'width': 1}
         self.assertEqual(test_rect.to_dictionary(), ret)
 
+    def test_rect_update_empty(self):
+        test_rect = Rectangle(1, 1)
+        dict_1 = test_rect.to_dictionary()
+        test_rect.update()
+        dict_2 = test_rect.to_dictionary()
+        self.assertEqual(dict_1, dict_2)
+
+    def test_rect_update_id(self):
+        test_rect = Rectangle(1, 1)
+        dict_1 = test_rect.to_dictionary()
+        test_rect.update(89)
+        dict_2 = test_rect.to_dictionary()
+        self.assertNotEqual(dict_1, dict_2)
+        self.assertEqual(test_rect.id, 89)
+
+    def test_rect_update_id_w(self):
+        test_rect = Rectangle(1, 1)
+        dict_1 = test_rect.to_dictionary()
+        test_rect.update(89, 5)
+        dict_2 = test_rect.to_dictionary()
+        self.assertNotEqual(dict_1, dict_2)
+        self.assertEqual(test_rect.id, 89)
+        self.assertEqual(test_rect.width, 5)
+
+    def test_rect_update_id_w_h(self):
+        test_rect = Rectangle(1, 1)
+        dict_1 = test_rect.to_dictionary()
+        test_rect.update(89, 5, 6)
+        dict_2 = test_rect.to_dictionary()
+        self.assertNotEqual(dict_1, dict_2)
+        self.assertEqual(test_rect.id, 89)
+        self.assertEqual(test_rect.width, 5)
+        self.assertEqual(test_rect.height, 6)
+   
+    def test_rect_update_id_w_h_x(self):
+        test_rect = Rectangle(1, 1)
+        dict_1 = test_rect.to_dictionary()
+        test_rect.update(89, 5, 6, 2)
+        dict_2 = test_rect.to_dictionary()
+        self.assertNotEqual(dict_1, dict_2)
+        self.assertEqual(test_rect.id, 89)
+        self.assertEqual(test_rect.width, 5)
+        self.assertEqual(test_rect.height, 6)
+        self.assertEqual(test_rect.x, 2)
+   
+    def test_rect_update_id_w_h_x_y(self):
+        test_rect = Rectangle(1, 1)
+        dict_1 = test_rect.to_dictionary()
+        test_rect.update(89, 5, 6, 2, 3)
+        dict_2 = test_rect.to_dictionary()
+        self.assertNotEqual(dict_1, dict_2)
+        self.assertEqual(test_rect.id, 89)
+        self.assertEqual(test_rect.width, 5)
+        self.assertEqual(test_rect.height, 6)
+        self.assertEqual(test_rect.x, 2)
+        self.assertEqual(test_rect.y, 3)
+
+    def test_rect_kupdate_id(self):
+        test_rect = Rectangle(1, 1)
+        dict_1 = test_rect.to_dictionary()
+        test_rect.update(**{"id": 89})
+        dict_2 = test_rect.to_dictionary()
+        self.assertNotEqual(dict_1, dict_2)
+        self.assertEqual(test_rect.id, 89)
+
+    def test_rect_kupdate_id_width(self):
+        test_rect = Rectangle(1, 1)
+        dict_1 = test_rect.to_dictionary()
+        test_rect.update(**{"id": 89, "width": 5})
+        dict_2 = test_rect.to_dictionary()
+        self.assertNotEqual(dict_1, dict_2)
+        self.assertEqual(test_rect.id, 89)
+        self.assertEqual(test_rect.width, 5)
+
+    def test_rect_kupdate_id_width_height(self):
+        test_rect = Rectangle(1, 1)
+        dict_1 = test_rect.to_dictionary()
+        test_rect.update(**{"id": 89, "width": 5, "height": 6})
+        dict_2 = test_rect.to_dictionary()
+        self.assertNotEqual(dict_1, dict_2)
+        self.assertEqual(test_rect.id, 89)
+        self.assertEqual(test_rect.width, 5)
+        self.assertEqual(test_rect.height, 6)
+
+    def test_rect_kupdate_id_width_height_x(self):
+        test_rect = Rectangle(1, 1)
+        dict_1 = test_rect.to_dictionary()
+        test_rect.update(**{"id": 89, "width": 5, "height": 6, "x": 7})
+        dict_2 = test_rect.to_dictionary()
+        self.assertNotEqual(dict_1, dict_2)
+        self.assertEqual(test_rect.id, 89)
+        self.assertEqual(test_rect.width, 5)
+        self.assertEqual(test_rect.height, 6)
+        self.assertEqual(test_rect.x, 7)
+
+    def test_rect_kupdate_id_width_height_x_y(self):
+        test_rect = Rectangle(1, 1)
+        dict_1 = test_rect.to_dictionary()
+        test_rect.update(**{"id": 89, "width": 5, "height": 6, "x": 7, "y": 8})
+        dict_2 = test_rect.to_dictionary()
+        self.assertNotEqual(dict_1, dict_2)
+        self.assertEqual(test_rect.id, 89)
+        self.assertEqual(test_rect.width, 5)
+        self.assertEqual(test_rect.height, 6)
+        self.assertEqual(test_rect.x, 7)
+        self.assertEqual(test_rect.y, 8)
+
+    def test_rect_create_id(self):
+        test_rect = Rectangle(1, 1)
+        new_rect = test_rect.create(**{"id": 95})
+        self.assertIsNot(test_rect, new_rect)
+        self.assertEqual(new_rect.id, 95)
+
+    def test_rect_create_id_width(self):
+        test_rect = Rectangle(1, 1)
+        new_rect = test_rect.create(**{"id": 95, "width": 5})
+        self.assertIsNot(test_rect, new_rect)
+        self.assertEqual(new_rect.id, 95)
+        self.assertEqual(new_rect.width, 5)
+
+    def test_rect_create_id_width_height(self):
+        test_rect = Rectangle(1, 1)
+        new_rect = test_rect.create(**{"id": 95, "width": 5, "height": 6})
+        self.assertIsNot(test_rect, new_rect)
+        self.assertEqual(new_rect.id, 95)
+        self.assertEqual(new_rect.width, 5)
+        self.assertEqual(new_rect.height, 6)
+
+    def test_rect_create_id_width_height_x(self):
+        test_rect = Rectangle(1, 1)
+        new_rect = test_rect.create(**{"id": 95, "width": 5, "height": 6, "x": 7})
+        self.assertIsNot(test_rect, new_rect)
+        self.assertEqual(new_rect.id, 95)
+        self.assertEqual(new_rect.width, 5)
+        self.assertEqual(new_rect.height, 6)
+        self.assertEqual(new_rect.x, 7)
+
+    def test_rect_create_id_width_height_x_y(self):
+        test_rect = Rectangle(1, 1)
+        new_rect = test_rect.create(**{"id": 95, "width": 5, "height": 6, "x": 7, "y": 8})
+        self.assertIsNot(test_rect, new_rect)
+        self.assertEqual(new_rect.id, 95)
+        self.assertEqual(new_rect.width, 5)
+        self.assertEqual(new_rect.height, 6)
+        self.assertEqual(new_rect.x, 7)
+        self.assertEqual(new_rect.y, 8)
 
 if __name__ == '__main__':
     unittest.main()
