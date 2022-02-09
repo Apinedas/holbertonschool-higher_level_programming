@@ -14,15 +14,16 @@ class TestBase(unittest.TestCase):
     """
     base_1 = Base()
     base_2 = Base()
+    base_3 = Base(5)
 
     def test_base_create(self):
-        """
-            First test
-        """
         self.assertEqual(self.base_1.id, 1)
     
     def test_base_update_id(self):
         self.assertEqual(self.base_2.id, 2)
+
+    def test_base_id(self):
+        self.assertEqual(self.base_3.id, 5)
 
 
 if __name__ == '__main__':
