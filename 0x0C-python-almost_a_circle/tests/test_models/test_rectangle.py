@@ -8,6 +8,7 @@ import unittest
 from models.rectangle import Rectangle
 from io import StringIO
 from contextlib import redirect_stdout
+import os
 
 
 class TestRectangle(unittest.TestCase):
@@ -246,6 +247,46 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(new_rect.height, 6)
         self.assertEqual(new_rect.x, 7)
         self.assertEqual(new_rect.y, 8)
+
+    def test_rect_savetofile_none(self):
+        ret = "[]"
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            s = (file.read())
+        self.assertEqual(ret, s)
+        os.remove("Rectangle.json")
+
+    def test_rect_savetofile_empty(self):
+        ret = "[]"
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as file:
+            s = (file.read())
+        self.assertEqual(ret, s)
+        os.remove("Rectangle.json")
+
+    def test_rect_savetofile_something(self):
+        ret = '[{"x": 6, "y": 8, "id": 10, "height": 4, "width": 2}]'
+        r1 = Rectangle(2, 4, 6, 8, 10)
+        Rectangle.save_to_file([r1])
+        with open("Rectangle.json", "r") as file:
+            s = (file.read())
+        self.assertEqual(ret, s)
+        os.remove("Rectangle.json")
+
+    def test_rect_loadfromfile_nofile(self):
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
+        test_list = Rectangle.load_from_file()
+        self.assertEqual(test_list, [])
+
+    def test_rect_loadfromfile(self):
+        r1 = Rectangle(1, 2, 3, 4, 5)
+        Rectangle.save_to_file([r1])
+        test_list = Rectangle.load_from_file()
+        self.assertEqual(test_list[0].to_dictionary(), r1.to_dictionary())
+        os.remove("Rectangle.json")
 
 if __name__ == '__main__':
     unittest.main()
