@@ -65,10 +65,7 @@ class TestRectangle(unittest.TestCase):
     def test_rect_str(self):
         test_rect = Rectangle(1, 2, 0, 0, 1012)
         ret = "[Rectangle] (1012) 0/0 - 1/2"
-        with redirect_stdout(StringIO()) as f:
-            print(test_rect, end="")
-        s = f.getvalue()
-        self.assertEqual(ret, s)
+        self.assertEqual(test_rect.__str__(), ret)
 
     def test_rect_display(self):
         test_rect = Rectangle(2, 2)
