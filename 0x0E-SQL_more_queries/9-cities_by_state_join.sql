@@ -1,4 +1,4 @@
 -- lists all cities contained in the database hbtn_0d_usa.
-SELECT name, id, 
+SELECT cities.id, cities.name, states.name
 FROM cities
-    NATURAL JOIN states;
+INNER JOIN states ON cities.state_id = states.id;
