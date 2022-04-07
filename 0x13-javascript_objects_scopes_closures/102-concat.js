@@ -15,11 +15,6 @@ fs.readFile(argv[2], (err, data) => {
 
 fs.readFile(argv[3], (err, data) => {
   if (!err) {
-    fs.appendFile(argv[4], '\n', (err) => {
-      if (err) {
-        console.log(err);
-      }
-    });
     fs.appendFile(argv[4], data, (err) => {
       if (err) {
         console.log(err);
