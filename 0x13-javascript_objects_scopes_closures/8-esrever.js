@@ -1,7 +1,7 @@
 #!/usr/bin/node
 exports.esrever = function (list) {
   let len;
-  let copy = [];
+  const copy = [];
   let aux = 0;
   for (len = 0; list[len]; len++) {
     continue;
