@@ -21,6 +21,6 @@ if __name__ == "__main__":
         if i < (len(query_rows) - 1):
             print(query_rows[i][0], end=", ")
         else:
-             print(query_rows[i][0], end="")
+            print(query_rows[i][0], end="")
     print()
     cur.close()
