@@ -11,7 +11,7 @@ Base = declarative_base()
 
 class State(Base):
     '''
-    First try on using SQLalchemy as ORM
+    First class for States
     '''
     __tablename__ = 'states'
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
