@@ -12,7 +12,8 @@ if __name__ == "__main__":
                          passwd=sys.argv[2], db=sys.argv[3])
     cur = db.cursor()
     st = sys.argv[4]
-    to = "SELECT * FROM states WHERE name='{}' ORDER BY id ASC".format(st)
+    to = "SELECT * FROM states WHERE BINARY name='{}'\
+         ORDER BY id ASC".format(st)
     cur.execute(to)
     query_rows = cur.fetchall()
     for row in query_rows:
