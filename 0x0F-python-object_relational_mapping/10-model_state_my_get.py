@@ -24,7 +24,7 @@ if __name__ == "__main__":
     for state in session.query(State).order_by(State.id).all():
         if sys.argv[4] == state.name:
             found.append(state.id)
-    
+
     if len(found) > 0:
         print(found[0])
     else:

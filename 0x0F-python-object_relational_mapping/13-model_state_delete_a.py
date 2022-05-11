@@ -24,7 +24,7 @@ if __name__ == "__main__":
     for state in session.query(State).order_by(State.id).all():
         if "a" in state.name:
             found.append(state)
-    
+
     for del_state in found:
         session.delete(del_state)
         session.commit()
