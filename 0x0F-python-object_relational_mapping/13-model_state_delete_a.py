@@ -26,6 +26,7 @@ if __name__ == "__main__":
 
     for del_state in found:
         session.delete(del_state)
-        session.commit()
+    
+    session.commit()
 
     session.close()
