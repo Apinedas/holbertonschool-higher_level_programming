@@ -16,7 +16,6 @@ if __name__ == "__main__":
 
     metadata = MetaData()
 
-    
     session = Session(engine)
 
     new_state = State(name='Louisiana')

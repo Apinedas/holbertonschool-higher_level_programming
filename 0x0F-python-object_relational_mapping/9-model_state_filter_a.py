@@ -16,7 +16,6 @@ if __name__ == "__main__":
 
     metadata = MetaData()
 
-    
     session = Session(engine)
 
     for state in session.query(State).order_by(State.id).all():

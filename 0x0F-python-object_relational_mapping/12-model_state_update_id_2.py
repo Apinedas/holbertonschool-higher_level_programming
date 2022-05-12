@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     engine.connect()
     metadata = MetaData()
-    
+
     session = Session(engine)
 
     state_to_change = session.query(State).get(2)

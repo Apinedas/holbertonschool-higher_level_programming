@@ -17,7 +17,6 @@ if __name__ == "__main__":
 
     metadata = MetaData()
 
-    
     session = Session(engine)
 
     for city in session.query(City).order_by(City.id).all():
