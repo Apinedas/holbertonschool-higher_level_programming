@@ -1,13 +1,11 @@
 #!/usr/bin/python3
 '''script that POST email to argv[1]'''
 
-
 if __name__ == "__main__":
     import urllib.request
     from urllib.error import HTTPError
     from urllib.parse import urlencode
     from sys import argv
-
 
     req = urllib.request.Request(argv[1])
     try:
