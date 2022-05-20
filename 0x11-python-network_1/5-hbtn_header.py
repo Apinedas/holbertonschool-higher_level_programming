@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''fetches https://intranet.hbtn.io/status'''
+'''fetches https://intranet.hbtn.io/status and print X-Request-Id'''
 
 
 import requests
